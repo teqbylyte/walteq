@@ -2,11 +2,11 @@
 
 @section('title', 'Login Page')
 
-@section('page-style')
+@push('page-style')
   {{-- Page Css files --}}
   <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/forms/form-validation.css')) }}">
   <link rel="stylesheet" href="{{ asset(mix('css/base/pages/authentication.css')) }}">
-@endsection
+@endpush
 
 @section('content')
 <div class="auth-wrapper auth-basic px-2">
@@ -78,6 +78,6 @@
 <script src="{{asset(mix('vendors/js/forms/validation/jquery.validate.min.js'))}}"></script>
 @endsection
 
-@section('page-script')
+@push('page-script')
 <script src="{{asset(mix('js/scripts/pages/auth-login.js'))}}"></script>
-@endsection
+@endpush
