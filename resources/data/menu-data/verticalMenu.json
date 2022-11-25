@@ -1,49 +1,60 @@
 {
   "menu": [
     {
-      "url": "home",
+      "route": "dashboard",
       "name": "Home",
       "icon": "home",
       "slug": "home"
     },
     {
-      "name": "Page Layouts",
-      "icon": "mail",
-      "slug": "",
-      "badge": "5",
-      "badgeClass": "badge rounded-pill badge-light-danger ms-auto me-1",
+        "route": "",
+        "name": "Wallets",
+      "icon": "credit-card",
+      "slug": "wallets",
+      "badge": "2",
+      "badgeClass": "badge rounded-pill badge-light-primary ms-auto me-1",
       "submenu": [
         {
-          "url": "layouts/collapsed-menu",
-          "name": "Collapsed Menu",
+            "route": "",
+            "name": "List",
           "icon": "circle",
           "slug": "collapsed-menu"
         },
         {
-          "url": "layouts/full",
-          "name": "Layout Full",
+            "route": "",
+            "name": "Transactions",
           "icon": "circle",
           "slug": "layout-full"
-        },
-        {
-          "url": "layouts/without-menu",
-          "name": "Without Menu",
-          "icon": "circle",
-          "slug": "without-menu"
-        },
-        {
-          "url": "layouts/empty",
-          "name": "Layout Empty",
-          "icon": "circle",
-          "slug": "layout-empty"
-        },
-        {
-          "url": "layouts/blank",
-          "name": "Layout Blank",
-          "icon": "circle",
-          "slug": "layout-blank"
         }
       ]
-    }
+    },
+      {
+          "route": "",
+          "name": "Virtual Account",
+          "icon": "trending-up",
+          "slug": "virtual account"
+      },
+      {
+          "route": "",
+          "name": "User Management",
+          "icon": "users",
+          "slug": "users",
+          "badge": "2",
+          "badgeClass": "badge rounded-pill badge-light-primary ms-auto me-1",
+          "submenu": [
+              {
+                  "route": "",
+                  "name": "Register Staff",
+                  "icon": "circle",
+                  "slug": "collapsed-menu"
+              },
+              {
+                  "route": "",
+                  "name": "List",
+                  "icon": "circle",
+                  "slug": "layout-full"
+              }
+          ]
+      }
   ]
 }

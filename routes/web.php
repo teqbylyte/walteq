@@ -17,8 +17,7 @@ use App\Http\Controllers\LanguageController;
 */
 
 Route::middleware('auth')->group(function () {
-    Route::get('/', [StaterkitController::class, 'home'])->name('home');
-    Route::get('home', [StaterkitController::class, 'home']);
+    Route::get('/', [StaterkitController::class, 'home'])->name('dashboard');
 // Route Components
     Route::get('layouts/collapsed-menu', [StaterkitController::class, 'collapsed_menu'])->name('collapsed-menu');
     Route::get('layouts/full', [StaterkitController::class, 'layout_full'])->name('layout-full');

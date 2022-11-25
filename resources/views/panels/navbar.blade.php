@@ -55,7 +55,7 @@
             data-feather="menu"></i></a></li>
     </ul>
     <ul class="nav navbar-nav">
-      <li class="nav-item d-none d-lg-block">
+      <li class="nav-item d-block">
         <a class="nav-link nav-link-style">
           <i class="ficon" data-feather="{{ $configData['theme'] === 'dark' ? 'sun' : 'moon' }}"></i>
         </a>
@@ -63,15 +63,15 @@
     </ul>
   </div>
   <ul class="nav navbar-nav align-items-center ms-auto">
-    <li class="nav-item dropdown dropdown-language">
+    {{--<li class="nav-item dropdown dropdown-language">
       <a class="nav-link dropdown-toggle" id="dropdown-flag" href="#" data-bs-toggle="dropdown" aria-haspopup="true">
         <i class="flag-icon flag-icon-ng"></i>
       </a>
-    </li>
+    </li>--}}
     <li class="nav-item dropdown dropdown-user">
       <a class="nav-link dropdown-toggle dropdown-user-link" id="dropdown-user" href="javascript:void(0);"
         data-bs-toggle="dropdown" aria-haspopup="true">
-        <div class="user-nav d-sm-flex d-none">
+        <div class="user-nav d-flex">
           <span class="user-name fw-bolder">
               {{ Auth::user()->name }}
           </span>
