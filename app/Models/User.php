@@ -49,4 +49,9 @@ class User extends Authenticatable
     {
         return Attribute::set(fn($value) => Hash::make($value));
     }
+
+    public function name(): Attribute
+    {
+        return  Attribute::get(fn($value) => "$this->first_name  $this->last_name");
+    }
 }
