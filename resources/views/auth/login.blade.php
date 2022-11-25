@@ -25,7 +25,7 @@
             <label for="login-email" class="form-label">Email</label>
             <input
               type="text"
-              class="form-control"
+              class="form-control @error('email') is-invalid @enderror"
               id="login-email"
               name="email"
               placeholder="admin@test.com"
@@ -34,6 +34,7 @@
               autofocus
               required
             />
+              <x-input-error input-name="email" />
           </div>
 
           <div class="mb-1">
@@ -56,6 +57,7 @@
               />
               <span class="input-group-text cursor-pointer"><i data-feather="eye"></i></span>
             </div>
+              <x-input-error input-name="password" />
           </div>
           <div class="mb-1">
             <div class="form-check">
