@@ -1,5 +1,6 @@
 <!-- BEGIN: Vendor JS-->
 <script src="{{ asset(mix('vendors/js/vendors.min.js')) }}"></script>
+<script src="{{ asset(mix('vendors/js/extensions/toastr.min.js')) }}"></script>
 <!-- BEGIN Vendor JS-->
 <!-- BEGIN: Page Vendor JS-->
 <script src="{{asset(mix('vendors/js/ui/jquery.sticky.js'))}}"></script>
@@ -17,5 +18,7 @@
 @endif
 <!-- END: Theme JS-->
 <!-- BEGIN: Page JS-->
-@yield('page-script')
+<link rel="stylesheet" href="{{ asset(mix('js/scripts/extensions/ext-component-toastr.js')) }}" />
+
+@stack('page-script')
 <!-- END: Page JS-->

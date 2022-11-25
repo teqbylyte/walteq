@@ -4,6 +4,7 @@
 @else
   <link rel="stylesheet" href="{{ asset(mix('vendors/css/vendors.min.css')) }}" />
 @endif
+<link rel="stylesheet" href="{{ asset(mix('vendors/css/extensions/toastr.min.css')) }}" />
 
 @yield('vendor-style')
 <!-- END: Vendor CSS-->
@@ -24,7 +25,9 @@
 @endif
 
 {{-- Page Styles --}}
-@yield('page-style')
+<link rel="stylesheet" href="{{ asset(mix('css/base/plugins/extensions/ext-component-toastr.css')) }}" />
+
+@stack('page-style')
 
 <!-- laravel style -->
 <link rel="stylesheet" href="{{ asset(mix('css/overrides.css')) }}" />
