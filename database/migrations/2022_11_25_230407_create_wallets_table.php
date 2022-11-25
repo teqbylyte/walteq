@@ -17,7 +17,7 @@ return new class extends Migration
             $table->uuid('id');
             $table->string('email')->unique();
             $table->string('account_number')->unique();
-            $table->double('balance')->default(0);
+            $table->float('balance')->default(0);
             $table->enum('status', ['ACTIVE', 'SUSPENDED', 'INACTIVE'])->default('ACTIVE');
             $table->boolean('disable_debit')->default(false);
             $table->timestamps();
