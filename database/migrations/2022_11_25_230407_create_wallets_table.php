@@ -15,8 +15,9 @@ return new class extends Migration
     {
         Schema::create('wallets', function (Blueprint $table) {
             $table->uuid('id');
+            $table->string('unique_id')->unique();
+            $table->string('full_name');
             $table->string('email')->unique();
-            $table->string('account_number')->unique();
             $table->float('balance')->default(0);
             $table->enum('status', ['ACTIVE', 'SUSPENDED', 'INACTIVE'])->default('ACTIVE');
             $table->boolean('disable_debit')->default(false);

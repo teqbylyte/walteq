@@ -2,9 +2,11 @@
 
 namespace App\Helpers;
 
+use Illuminate\Http\JsonResponse;
+
 class MyResponse
 {
-    public static function success($message, $data = null): \Illuminate\Http\JsonResponse
+    public static function success($message, $data = null): JsonResponse
     {
 //        if ( !is_null($data) ) {
 //            $teqrypt = new Teqrypt();
@@ -19,7 +21,7 @@ class MyResponse
         ]);
     }
 
-    public static function failed($message, $data = null): \Illuminate\Http\JsonResponse
+    public static function failed($message, $data = null): JsonResponse
     {
 //        if ( !is_null($data) ) {
 //            $teqrypt = new Teqrypt();

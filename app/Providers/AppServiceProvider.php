@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Wallet;
+use App\Observers\WalletObserver;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
@@ -25,6 +27,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->bladeDirectives();
+        $this->registerObservers();
     }
 
     private function bladeDirectives()
@@ -32,5 +35,10 @@ class AppServiceProvider extends ServiceProvider
         Blade::directive('money', fn($value) => "<?php echo moneyFormat($value) ?>" );
         Blade::directive('appName', fn($value) => "<?php echo config('app.name') ?>" );
         Blade::directive('nbsp', fn($value) => "<?php echo str_replace(' ', '&nbsp;', $value) ?>" );
+    }
+
+    private function registerObservers()
+    {
+        Wallet::observe(WalletObserver::class);
     }
 }
