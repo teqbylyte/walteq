@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\WalletController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\Api\WalletTransactionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,4 +19,6 @@ Route::prefix('v1')->group(function () {
     Route::controller(WalletController::class)->prefix('wallets')->group(function () {
         Route::post('/create', 'store');
     });
+
+    Route::resource('wallets.transactions', WalletTransactionController::class)->only('index');
 });
