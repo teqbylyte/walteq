@@ -21,15 +21,4 @@ class WalletController extends Controller
 
         return MyResponse::success('Wallet created', $data);
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param Wallet $wallet
-     * @return JsonResponse
-     */
-    public function show(Wallet $wallet)
-    {
-        //
-    }
 }

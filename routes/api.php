@@ -16,8 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::prefix('v1')->group(function () {
-    Route::resource('wallets', WalletController::class)->only(['index','store', 'show']);
-});
-Route::middleware('auth')->get('/user', function (Request $request) {
-    return $request->user();
+    Route::controller(WalletController::class)->prefix('wallets')->group(function () {
+        Route::post('/create', 'store');
+    });
 });
