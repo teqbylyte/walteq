@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('wallets', function (Blueprint $table) {
-            $table->uuid('id');
+            $table->id();
             $table->string('unique_id')->unique();
             $table->string('full_name');
             $table->string('email')->unique();

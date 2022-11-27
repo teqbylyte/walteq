@@ -14,13 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('wallet_transactions', function (Blueprint $table) {
-            $table->uuid('id');
+            $table->id();
             $table->unsignedBigInteger('wallet_id');
             $table->string('reference');
             $table->float('amount', 12)->default(0);
             $table->float('prev_balance', 12)->default(0);
             $table->float('new_balance', 12)->default(0);
-            $table->enum('status', ['SUCCESSFUL', 'PENDING', 'FAILED']);
+            $table->enum('status', ['SUCCESSFUL', 'PENDING', 'FAILED'])->default('SUCCESSFUL');
             $table->enum('action', \App\Models\WalletTransaction::ACTION);
             $table->enum('type', \App\Models\WalletTransaction::TYPES);
             $table->longText('info')->nullable();
