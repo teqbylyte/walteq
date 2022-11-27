@@ -2,14 +2,15 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class WalletTransaction extends Model
 {
-    use HasFactory, HasUuids;
+    use HasFactory;
+
+    protected $guarded = ['id'];
 
     const TYPES = ['FUNDING', 'CHARGE', 'WALLET_TRANSFER', 'BANK_TRANSFER'];
 
