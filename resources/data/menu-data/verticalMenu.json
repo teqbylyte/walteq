@@ -1,60 +1,57 @@
 {
-  "menu": [
-    {
-      "route": "dashboard",
-      "name": "Home",
-      "icon": "home",
-      "slug": "home"
-    },
-    {
-        "route": "",
-        "name": "Wallets",
-      "icon": "credit-card",
-      "slug": "wallets",
-      "badge": "2",
-      "badgeClass": "badge rounded-pill badge-light-primary ms-auto me-1",
-      "submenu": [
+    "menu": [
         {
-            "route": "",
-            "name": "List",
-          "icon": "circle",
-          "slug": "collapsed-menu"
+            "url": "dashboard",
+            "name": "Dashboard",
+            "icon": "home",
+            "slug": "dashboard"
         },
         {
-            "route": "",
-            "name": "Transactions",
-          "icon": "circle",
-          "slug": "layout-full"
+            "name": "Wallets",
+            "icon": "credit-card",
+            "slug": "",
+            "badge": "2",
+            "role": "staff",
+            "submenu": [
+                {
+                    "url": "wallets.index",
+                    "name": "List",
+                    "icon": "circle",
+                    "slug": "wallets.list"
+                },
+                {
+                    "url": "",
+                    "name": "Transactions",
+                    "icon": "circle",
+                    "slug": "wallets.transactions"
+                }
+            ]
+        },
+        {
+            "url": "",
+            "name": "Virtual Account",
+            "icon": "trending-up",
+            "slug": "virtual-accounts.index"
+        },
+        {
+            "name": "Administration",
+            "icon": "users",
+            "slug": "",
+            "badge": "2",
+            "submenu": [
+                {
+                    "url": "",
+                    "name": "Register Admin",
+                    "icon": "circle",
+                    "slug": "admin.users"
+                },
+                {
+                    "url": "",
+                    "name": "List",
+                    "icon": "circle",
+                    "slug": ""
+                }
+            ]
         }
-      ]
-    },
-      {
-          "route": "",
-          "name": "Virtual Account",
-          "icon": "trending-up",
-          "slug": "virtual account"
-      },
-      {
-          "route": "",
-          "name": "User Management",
-          "icon": "users",
-          "slug": "users",
-          "badge": "2",
-          "badgeClass": "badge rounded-pill badge-light-primary ms-auto me-1",
-          "submenu": [
-              {
-                  "route": "",
-                  "name": "Register Staff",
-                  "icon": "circle",
-                  "slug": "collapsed-menu"
-              },
-              {
-                  "route": "",
-                  "name": "List",
-                  "icon": "circle",
-                  "slug": "layout-full"
-              }
-          ]
-      }
-  ]
+    ]
 }

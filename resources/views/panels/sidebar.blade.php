@@ -21,7 +21,7 @@ $configData = Helper::applClasses();
   <div class="shadow-bottom"></div>
   <div class="main-menu-content">
     <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
-      {{-- Foreach menu item starts --}}
+        {{-- Foreach menu item starts --}}
       @if (isset($menuData[0]))
         @foreach ($menuData[0]->menu as $menu)
           @if (isset($menu->navheader))
@@ -37,22 +37,22 @@ $configData = Helper::applClasses();
                   $custom_classes = $menu->classlist;
               }
             @endphp
-            <li
-              class="nav-item {{ $custom_classes }} {{ Route::currentRouteName() === $menu->route ? 'active' : '' }}">
-              <a href="{{ !empty($menu->route) ? route($menu->route) : 'javascript:void(0)' }}" class="d-flex align-items-center"
-                target="{{ isset($menu->newTab) ? '_blank' : '_self' }}">
-                <i data-feather="{{ $menu->icon }}"></i>
-                <span class="menu-title text-truncate">{{ $menu->name }}</span>
-                @if (isset($menu->badge))
-                  <?php $badgeClasses = 'badge rounded-pill badge-light-primary ms-auto me-1'; ?>
-                  <span
-                    class="{{ $menu->badgeClass ?? $badgeClasses }}">{{ $menu->badge }}</span>
-                @endif
-              </a>
-              @if (isset($menu->submenu))
-                @include('panels/submenu', ['menu' => $menu->submenu])
-              @endif
-            </li>
+                <li
+                    class="nav-item {{ $custom_classes }} {{ Route::currentRouteName() === $menu->slug ? 'active' : '' }}">
+                    <a href="{{ !empty($menu->url) ? route($menu->url) : 'javascript:void(0)' }}" class="d-flex align-items-center"
+                       target="{{ isset($menu->newTab) ? '_blank' : '_self' }}">
+                        <i data-feather="{{ $menu->icon }}"></i>
+                        <span class="menu-title text-truncate">{{ __($menu->name) }}</span>
+                        @if (isset($menu->badge))
+                            <?php $badgeClasses = 'badge rounded-pill badge-light-primary ms-auto me-1'; ?>
+                            <span
+                                class="{{ $menu->badgeClass ?? $badgeClasses }}">{{ $menu->badge }}</span>
+                        @endif
+                    </a>
+                    @if (isset($menu->submenu))
+                        @include('panels/submenu', ['menu' => $menu->submenu])
+                    @endif
+                </li>
           @endif
         @endforeach
       @endif
