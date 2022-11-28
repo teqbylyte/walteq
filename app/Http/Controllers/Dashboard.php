@@ -9,9 +9,6 @@ class Dashboard extends Controller
     // home
     public function home()
     {
-        $breadcrumbs = [
-            ['link' => "home", 'name' => "Home"], ['name' => "Index"]
-        ];
-        return view('/content/home', ['breadcrumbs' => $breadcrumbs]);
+        return view('pages.dashboard');
     }
 }
