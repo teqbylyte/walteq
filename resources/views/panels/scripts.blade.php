@@ -20,5 +20,7 @@
 <!-- BEGIN: Page JS-->
 <link rel="stylesheet" href="{{ asset(mix('js/scripts/extensions/ext-component-toastr.js')) }}" />
 
+@livewireScripts
+
 @stack('page-script')
 <!-- END: Page JS-->

@@ -33,12 +33,23 @@
                                         <i data-feather='more-vertical'></i>
                                     </button>
                                     <div class="dropdown-menu @unless($loop->last) dropdown-menu-end @endunless">
-                                        <a class="dropdown-item text-warning" href="#">
-                                            <span>Suspend</span>
-                                        </a>
-                                        <a class="dropdown-item text-danger" href="#">
-                                            <span>Deactivate</span>
-                                        </a>
+                                        @unless($wallet->status == 'ACTIVE')
+                                            <a class="dropdown-item text-success" href="#">
+                                                <span>Activate</span>
+                                            </a>
+                                        @endunless
+
+                                        @unless($wallet->status == 'SUSPENDED')
+                                            <a class="dropdown-item text-warning" href="#">
+                                                <span>Suspend</span>
+                                            </a>
+                                        @endunless
+
+                                        @unless($wallet->status == 'INACTIVE')
+                                            <a class="dropdown-item text-danger" href="#">
+                                                <span>Deactivate</span>
+                                            </a>
+                                        @endunless
                                     </div>
                                 </div>
                             </td>

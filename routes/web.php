@@ -18,7 +18,7 @@ use App\Http\Controllers\LanguageController;
 */
 
 Route::middleware('auth')->group(function () {
-    Route::get('/', [Dashboard::class, 'home'])->name('dashboard');
+    Route::get('/', [Dashboard::class, 'index'])->name('dashboard');
 
     Route::resource('wallets', WalletController::class)->only('index');
 });
