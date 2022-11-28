@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\WalletController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Dashboard;
@@ -19,6 +20,7 @@ use App\Http\Controllers\LanguageController;
 Route::middleware('auth')->group(function () {
     Route::get('/', [Dashboard::class, 'home'])->name('dashboard');
 
+    Route::resource('wallets', WalletController::class)->only('index');
 });
 
 // locale Route
