@@ -17,7 +17,7 @@
                     "url": "wallets.index",
                     "name": "List",
                     "icon": "circle",
-                    "slug": "wallets.list"
+                    "slug": "wallets.index"
                 },
                 {
                     "url": "",
