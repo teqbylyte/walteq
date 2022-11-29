@@ -28,9 +28,9 @@
                             <td>
                                 <div class="dropdown @if($loop->last) dropup @endif">
                                     <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0 waves-effect waves-float waves-light"
-                                            data-bs-toggle="dropdown" wire:ignore
+                                            data-bs-toggle="dropdown"
                                     >
-                                        <i data-feather='more-vertical'></i>
+                                        <x-feathericon-more-vertical />
                                     </button>
                                     <div class="dropdown-menu @unless($loop->last) dropdown-menu-end @endunless">
                                         @unless($wallet->status == 'ACTIVE')
@@ -57,6 +57,10 @@
                     @endforeach
                     </tbody>
                 </table>
+            </div>
+
+            <div class="card-footer pb-0">
+                {{ $wallets->links() }}
             </div>
         </div>
     </div>
