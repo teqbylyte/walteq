@@ -1,12 +1,21 @@
 <div class="row">
     <div class="col-12">
         <div class="card">
-            <div class="card-header d-flex justify-content-end">
-                <div class="me-auto">
+            <div class="card-header row justify-content-start">
+                <div class="col-md-4 col-lg-3">
                     <div class="input-group input-group-merge">
                         <span class="input-group-text" id="Search"><x-feathericon-search /></span>
-                        <input type="search" class="form-control" wire:model="search" placeholder="Search email, id, ref..." aria-describedby="Search" aria-label="Search">
+                        <input type="search" class="form-control" wire:model.debounce.500ms="search" placeholder="Search Email, Wallet ID, Reference..." aria-describedby="Search" aria-label="Search">
                     </div>
+                </div>
+
+                <div class="col-md-4 col-lg-3">
+                    <select class="form-select" wire:model="type" id="">
+                        <option disabled selected>Transaction Type</option>
+                        @foreach(\App\Models\WalletTransaction::TYPES as $t)
+                            <option value="{{ $t }}">{{ str($t)->replace('_', ' ') }}</option>
+                        @endforeach
+                    </select>
                 </div>
             </div>
             <div class="table-responsive">
