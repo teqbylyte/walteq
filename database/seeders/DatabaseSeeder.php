@@ -17,5 +17,9 @@ class DatabaseSeeder extends Seeder
     {
         User::factory()->create(['email' => 'admin@test.com']);
          \App\Models\User::factory(10)->create();
+
+         $this->call([
+             WalletSeeder::class,
+         ]);
     }
 }
