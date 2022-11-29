@@ -20,10 +20,10 @@
                     "slug": "wallets.index"
                 },
                 {
-                    "url": "",
+                    "url": "transactions.index",
                     "name": "Transactions",
                     "icon": "circle",
-                    "slug": "wallets.transactions"
+                    "slug": "transactions.index"
                 }
             ]
         },
