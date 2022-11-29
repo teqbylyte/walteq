@@ -22,5 +22,24 @@
 
 @livewireScripts
 
+<script type="text/javascript">
+    $(window).on('load', function() {
+        if (feather) {
+            feather.replace({
+                width: 14, height: 14
+            });
+        }
+    })
+
+    window.addEventListener('flash-msg', event => {
+
+        let title = event.detail.type.charAt(0).toUpperCase() + event.detail.type.slice(1) + '!'
+
+        toastr[event.detail.type](event.detail.message, title);
+        toastr.options = {
+            "closeButton": true,
+        }
+    });
+</script>
 @stack('page-script')
 <!-- END: Page JS-->

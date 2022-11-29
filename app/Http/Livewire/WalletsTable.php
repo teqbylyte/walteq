@@ -40,6 +40,10 @@ class WalletsTable extends Component
         if (in_array($status, ['SUSPENDED', 'INACTIVE', 'ACTIVE'])) {
             $wallet->status = $status;
             $wallet->save();
+
+            $this->dispatchBrowserEvent('flash-msg',
+                ['type' => 'success',  'message' => "$wallet->email is now $status"]
+            );
         }
     }
 }

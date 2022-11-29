@@ -39,7 +39,7 @@
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-end">
                                         @unless($wallet->status == 'ACTIVE')
-                                            <a class="dropdown-item text-success" href="#"  wire:click="updateStatus('{{ $wallet->unique_id }}', 'ACTIVE')">
+                                            <a class="dropdown-item text-primary" href="#"  wire:click="updateStatus('{{ $wallet->unique_id }}', 'ACTIVE')">
                                                 <span>Activate</span>
                                             </a>
                                         @endunless

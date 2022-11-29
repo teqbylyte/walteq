@@ -15,6 +15,11 @@ data-asset-path="{{ asset('/')}}">
   @endif
   <!-- END: Main Menu-->
 
+  <!-- BEGIN: Flash Message-->
+  <x-toast />
+  <!-- END: Flash Message-->
+
+
   <!-- BEGIN: Content-->
   <div class="app-content content {{ $configData['pageClass'] }}">
     <!-- BEGIN: Header-->
@@ -63,15 +68,5 @@ data-asset-path="{{ asset('/')}}">
 
   {{-- include default scripts --}}
   @include('panels/scripts')
-
-  <script type="text/javascript">
-    $(window).on('load', function() {
-      if (feather) {
-        feather.replace({
-          width: 14, height: 14
-        });
-      }
-    })
-  </script>
 </body>
 </html>
