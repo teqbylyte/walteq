@@ -1,8 +1,13 @@
 <div class="row">
     <div class="col-12">
         <div class="card">
-            <div class="card-header">
-
+            <div class="card-header d-flex justify-content-end">
+                <div class="me-auto">
+                    <div class="input-group input-group-merge">
+                        <span class="input-group-text" id="Search"><x-feathericon-search /></span>
+                        <input type="search" class="form-control" wire:model="search" placeholder="Search..." aria-describedby="Search" aria-label="Search">
+                    </div>
+                </div>
             </div>
             <div class="table-responsive">
                 <table class="table">
