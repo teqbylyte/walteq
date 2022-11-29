@@ -27,7 +27,12 @@ class WalletTransactionsTable extends Component
 
     public function render()
     {
-        $transactions = WalletTransaction::with('wallet')->latest()->paginate();
+        $transactions = WalletTransaction::with('wallet')
+            ->where('reference', 'like', '%' . $this->search . '%')
+            ->orWhereHas('wallet',
+                fn($query) => $query->where('email', 'like', '%' . $this->search . '%')
+                    ->orWhere('unique_id', 'like', '%' . $this->search . '%')
+            )->latest()->paginate();
 
         return view('livewire.wallet-transactions-table', compact('transactions'));
     }

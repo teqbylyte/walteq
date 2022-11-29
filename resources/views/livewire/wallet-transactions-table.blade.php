@@ -5,7 +5,7 @@
                 <div class="me-auto">
                     <div class="input-group input-group-merge">
                         <span class="input-group-text" id="Search"><x-feathericon-search /></span>
-                        <input type="search" class="form-control" wire:model="search" placeholder="Search..." aria-describedby="Search" aria-label="Search">
+                        <input type="search" class="form-control" wire:model="search" placeholder="Search email, id, ref..." aria-describedby="Search" aria-label="Search">
                     </div>
                 </div>
             </div>
@@ -17,6 +17,7 @@
                         <th>Amount</th>
                         <th>Previous Balance</th>
                         <th>New Balance</th>
+                        <th>Reference</th>
                         <th>Type</th>
                         <th>Transaction</th>
                         <th>Info</th>
@@ -35,6 +36,7 @@
                             <td><span class="fw-bolder text-success">@money($transaction->amount)</span></td>
                             <td><span class="fw-bolder text-secondary">@money($transaction->prev_balance)</span></td>
                             <td><span class="fw-bolder text-primary">@money($transaction->new_balance)</span></td>
+                            <td>{{ $transaction->reference }}</td>
                             <td>
                                 <span @class([ 'badge rounded-pill',
                                       'badge-light-success' => $transaction->action == 'CREDIT',

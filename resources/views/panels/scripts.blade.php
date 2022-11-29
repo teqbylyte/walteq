@@ -35,7 +35,7 @@
 
         let title = event.detail.type.charAt(0).toUpperCase() + event.detail.type.slice(1) + '!'
 
-        toastr[event.detail.type](event.detail.message, title);
+        toastr[event.detail.type](event.detail.message, title),
         toastr.options = {
             "closeButton": true,
         }

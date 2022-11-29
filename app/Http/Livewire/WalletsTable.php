@@ -12,8 +12,6 @@ class WalletsTable extends Component
 
     public $search;
 
-    protected $listeners = ['refresh' => '$refresh'];
-
     protected $paginationTheme = 'bootstrap';
 
     protected $queryString = [
