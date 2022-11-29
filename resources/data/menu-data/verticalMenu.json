@@ -34,6 +34,12 @@
             "slug": "virtual-accounts.index"
         },
         {
+            "url": "",
+            "name": "Ledger",
+            "icon": "book-open",
+            "slug": "virtual-accounts.index"
+        },
+        {
             "name": "Administration",
             "icon": "users",
             "slug": "",
