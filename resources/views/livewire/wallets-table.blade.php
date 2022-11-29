@@ -17,7 +17,7 @@
                         <th>Wallet ID</th>
                         <th>Balance</th>
                         <th>Status</th>
-                        <th>Actions</th>
+                        <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -31,27 +31,27 @@
                                 <x-wallet-badge :status="$wallet->status" />
                             </td>
                             <td>
-                                <div class="dropdown @if($loop->last) dropup @endif">
-                                    <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0 waves-effect waves-float waves-light"
+                                <div class="dropdown">
+                                    <a class="btn btn-sm dropdown-toggle hide-arrow py-0 waves-effect waves-float waves-light"
                                             data-bs-toggle="dropdown"
                                     >
                                         <x-feathericon-more-vertical />
-                                    </button>
-                                    <div class="dropdown-menu @unless($loop->last) dropdown-menu-end @endunless">
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-end">
                                         @unless($wallet->status == 'ACTIVE')
-                                            <a class="dropdown-item text-success" href="#">
+                                            <a class="dropdown-item text-success" href="#"  wire:click="updateStatus('{{ $wallet->unique_id }}', 'ACTIVE')">
                                                 <span>Activate</span>
                                             </a>
                                         @endunless
 
                                         @unless($wallet->status == 'SUSPENDED')
-                                            <a class="dropdown-item text-warning" href="#">
+                                            <a class="dropdown-item text-warning" href="#" wire:click="updateStatus('{{ $wallet->unique_id }}', 'SUSPENDED')">
                                                 <span>Suspend</span>
                                             </a>
                                         @endunless
 
                                         @unless($wallet->status == 'INACTIVE')
-                                            <a class="dropdown-item text-danger" href="#">
+                                            <a class="dropdown-item text-danger" href="#"  wire:click="updateStatus('{{ $wallet->unique_id }}', 'INACTIVE')">
                                                 <span>Deactivate</span>
                                             </a>
                                         @endunless

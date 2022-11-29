@@ -12,6 +12,8 @@ class WalletsTable extends Component
 
     public $search;
 
+    protected $listeners = ['refresh' => '$refresh'];
+
     protected $paginationTheme = 'bootstrap';
 
     protected $queryString = [
@@ -31,5 +33,13 @@ class WalletsTable extends Component
             ->latest()->paginate();
 
         return view('livewire.wallets-table', compact('wallets'));
+    }
+
+    public function updateStatus(Wallet $wallet, $status)
+    {
+        if (in_array($status, ['SUSPENDED', 'INACTIVE', 'ACTIVE'])) {
+            $wallet->status = $status;
+            $wallet->save();
+        }
     }
 }
