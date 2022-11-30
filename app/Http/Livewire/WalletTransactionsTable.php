@@ -23,16 +23,6 @@ class WalletTransactionsTable extends Component
         'page' => ['except' => 1, 'as' => 'p']
     ];
 
-    public function updatingSearch()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingType()
-    {
-        $this->resetPage();
-    }
-
     public function render()
     {
         if (empty($this->search ) && empty($this->type)) {
@@ -48,5 +38,15 @@ class WalletTransactionsTable extends Component
         }
 
         return view('livewire.wallet-transactions-table', compact('transactions'));
+    }
+
+    public function updatingSearch()
+    {
+        $this->resetPage();
+    }
+
+    public function updatingType()
+    {
+        $this->resetPage();
     }
 }

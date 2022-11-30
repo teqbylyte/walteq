@@ -2,20 +2,24 @@
     <div class="col-12">
         <div class="card">
             <div class="card-header row justify-content-start">
-                <div class="col-md-4 col-lg-3">
+                <div class="col-sm-3 col-md-4 col-lg-3">
                     <div class="input-group input-group-merge">
                         <span class="input-group-text" id="Search"><x-feathericon-search /></span>
                         <input type="search" class="form-control" wire:model.debounce.500ms="search" placeholder="Search Email, Wallet ID, Reference..." aria-describedby="Search" aria-label="Search">
                     </div>
                 </div>
 
-                <div class="col-md-4 col-lg-3">
+                <div class="col-sm-3 col-md-4 col-lg-3 mt-1 mt-sm-0">
                     <select class="form-select" wire:model="type" id="">
                         <option value="" selected>All Transactions</option>
                         @foreach(\App\Models\WalletTransaction::TYPES as $t)
                             <option value="{{ $t }}">{{ str($t)->replace('_', ' ') }}</option>
                         @endforeach
                     </select>
+                </div>
+
+                <div class="col-sm-3 col-md-4 col-lg-3 mt-1 mt-sm-0">
+                    <input type="text" id="fp-range" class="form-control flatpickr-range flatpickr-input active" placeholder="YYYY-MM-DD to YYYY-MM-DD" readonly="readonly">
                 </div>
             </div>
             <div class="table-responsive">
@@ -64,10 +68,10 @@
                     @endforeach
                     </tbody>
                 </table>
-            </div>
 
-            <div class="card-footer pb-0">
-                {{ $transactions->links() }}
+                <div class="px-2 py-1">
+                    {{ $transactions->links() }}
+                </div>
             </div>
         </div>
     </div>
