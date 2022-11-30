@@ -102,9 +102,7 @@
                             <td><a href="mailto:{{ $user->email }}">{{ $user->email }}</a></td>
                             <td>{{ $user->phone }}</td>
                             <td>
-                                <span class="badge rounded-pill me-1 badge-light-primary">
-                                    Active
-                                </span>
+                                <x-wallet-badge :status="$user->status" />
                             </td>
 
                             <td>
@@ -128,6 +126,7 @@
             <div class="modal modal-slide-in new-user-modal fade" id="modals-slide-in">
                 <div class="modal-dialog">
                     <form class="add-new-user modal-content pt-0" action="{{ route('admin.store') }}" method="post">
+                        @csrf
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">×</button>
                         <div class="modal-header mb-1">
                             <h5 class="modal-title" id="exampleModalLabel">Add new admin</h5>
@@ -136,42 +135,39 @@
                             <div class="mb-1">
                                 <label class="form-label" for="first_name">First Name</label>
                                 <input
-                                    type="text"
-                                    class="form-control dt-full-name"
-                                    id="first_name"
+                                    type="text" id="first_name" name="first_name"
+                                    class="form-control dt-full-name @error('first_name') is-invalid @enderror"
                                     placeholder="First Name"
-                                    name="first_name"
                                 />
+                                <x-input-error input-name="first_name" />
                             </div>
                             <div class="mb-1">
                                 <label class="form-label" for="last_name">Last Name</label>
                                 <input
-                                    type="text"
-                                    class="form-control dt-full-name"
-                                    id="last_name"
+                                    type="text" id="last_name" name="last_name"
+                                    class="form-control dt-full-name @error('last_name') is-invalid @enderror"
                                     placeholder="Last Name"
-                                    name="last_name"
+
                                 />
+                                <x-input-error input-name="last_name" />
                             </div>
                             <div class="mb-1">
                                 <label class="form-label" for="email">Email</label>
                                 <input
-                                    type="email"
-                                    id="email"
-                                    class="form-control dt-email"
+                                    type="email" id="email" name="email"
+                                    class="form-control dt-email @error('email') is-invalid @enderror"
                                     placeholder="test@example.com"
-                                    name="email"
                                 />
+                                <x-input-error input-name="email" />
                             </div>
                             <div class="mb-1">
                                 <label class="form-label" for="phone">Phone Number</label>
                                 <input
-                                    type="text"
-                                    id="phone"
-                                    class="form-control dt-contact"
+                                    type="text" id="phone" name="phone"
+                                    class="form-control dt-contact @error('email') is-invalid @enderror"
                                     placeholder="08000000000"
-                                    name="phone"
                                 />
+                                <x-input-error input-name="phone" />
                             </div>
                             <div class="mb-3"></div>
                             <hr />

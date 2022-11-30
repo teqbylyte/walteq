@@ -14,26 +14,28 @@ class AdminController extends Controller
     public function index()
     {
         $users = User::all();
-        return view('pages.admin.index', compact('users'));
-    }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     */
-    public function create()
-    {
-        //
+        return view('pages.admin.index', compact('users'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'email' => 'required|email:rfc,dns|unique:users,email',
+            'phone' => 'required|digits:11',
+        ]);
+
+        User::create($request->only('email', 'phone', 'last_name', 'first_name'));
+
+        return back()->with('success', 'Admin registered Successfully!');
     }
 
     /**
