@@ -19,10 +19,13 @@ Route::prefix('v1')->group(function () {
     Route::controller(WalletController::class)->prefix('wallets')->group(function () {
         Route::post('/create', 'store');
         Route::get('/{wallet}', 'show');
-        Route::post('/{wallet}/wallet-transfer', 'walletTransfer');
         Route::get('/{wallet}/balance', 'balance');
     });
 
     Route::resource('wallets.transactions', WalletTransactionController::class)->only('index');
-    Route::post('/transactions/create', [WalletTransactionController::class, 'store']);
+
+    Route::controller(WalletTransactionController::class)->prefix('transactions')->group(function () {
+        Route::post('/create', 'store');
+        Route::post('/wallet-transfer', 'walletTransfer');
+    });
 });

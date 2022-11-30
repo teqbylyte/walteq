@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Api;
 
 use App\Helpers\MyResponse;
 use App\Http\Requests\StoreWalletRequest;
-use App\Http\Requests\WalletTransferRequest;
 use App\Models\Wallet;
 use Illuminate\Http\JsonResponse;
 
@@ -31,10 +30,5 @@ class WalletController extends Controller
     public function balance(Wallet $wallet)
     {
         return MyResponse::success('Wallet balance fetched!', $wallet->only(['unique_id', 'balance']));
-    }
-
-    public function walletTransfer(WalletTransferRequest $request, Wallet $wallet)
-    {
-        return $request->fulfil();
     }
 }

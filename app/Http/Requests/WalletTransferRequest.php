@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use App\Helpers\MyResponse;
 use App\Models\Wallet;
+use App\Models\WalletTransaction;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\DB;
@@ -32,6 +33,7 @@ class WalletTransferRequest extends FormRequest
     public function rules()
     {
         return [
+            'sender_wallet_id'      => 'required|exists:wallets,unique_id',
             'receiver_wallet_id'    => 'required|exists:wallets,unique_id',
             'amount'                => 'required|numeric',
             'reference'             => 'required',
@@ -41,7 +43,7 @@ class WalletTransferRequest extends FormRequest
 
     protected function passedValidation()
     {
-        $this->sender = $this->wallet;
+        $this->sender = Wallet::whereUniqueId($this->sender_wallet_id)->first();
 
         $this->receiver = Wallet::whereUniqueId($this->receiver_wallet_id)->first();
 
@@ -50,11 +52,6 @@ class WalletTransferRequest extends FormRequest
         $wallet_check = $this->sender->canPerformTransaction($this->amount);
 
         abort_unless($wallet_check['success'], 403, $wallet_check['message']);
-    }
-
-    public function fulfil(): JsonResponse
-    {
-        $response = MyResponse::failed('An Error occurred');
 
         DB::transaction(function () use (&$response) {
             $this->sender->debit($this->amount, $this->reference, $this->info, 'WALLET_TRANSFER');
@@ -62,10 +59,11 @@ class WalletTransferRequest extends FormRequest
             $info = "$this->info. From " . $this->sender->full_name ?? $this->sender->email;
 
             $this->receiver->credit($this->amount, $this->reference, $info, 'WALLET_TRANSFER');
-
-            $response = MyResponse::success('Wallet transfer was successful!');
         });
+    }
 
-        return $response;
+    public function fulfil(): WalletTransaction
+    {
+        return  $this->sender->transactions()->latest()->first();
     }
 }
