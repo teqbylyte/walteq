@@ -10,6 +10,6 @@ class WalletTransactionController extends Controller
 {
     public function index(Wallet $wallet)
     {
-        return MyResponse::success('Wallet transactions fetched!', $wallet->transactions()->simplePaginate(75));
+        return MyResponse::success('Wallet transactions fetched!', $wallet->transactions()->latest()->simplePaginate(75));
     }
 }
