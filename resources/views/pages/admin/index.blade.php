@@ -46,7 +46,7 @@
                 <div class="card">
                     <div class="card-body d-flex align-items-center justify-content-between">
                         <div>
-                            <h3 class="fw-bolder mb-75">19,860</h3>
+                            <h3 class="fw-bolder mb-75">{{ $users->where('status', 'ACTIVE')->count() }}</h3>
                             <span>Active</span>
                         </div>
                         <div class="avatar bg-light-success p-50">
@@ -61,7 +61,7 @@
                 <div class="card">
                     <div class="card-body d-flex align-items-center justify-content-between">
                         <div>
-                            <h3 class="fw-bolder mb-75">237</h3>
+                            <h3 class="fw-bolder mb-75">{{ $users->whereNotIn('status', ['ACTIVE'])->count() }}</h3>
                             <span>Inactive</span>
                         </div>
                         <div class="avatar bg-light-danger p-50">
