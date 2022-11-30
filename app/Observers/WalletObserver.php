@@ -16,6 +16,8 @@ class WalletObserver
     public function creating(Wallet $wallet)
     {
         $wallet->unique_id = WalletHelper::generateUniqueId();
+        $wallet->balance = 0.0;
+        $wallet->status = 'ACTIVE';
     }
 
     /**
