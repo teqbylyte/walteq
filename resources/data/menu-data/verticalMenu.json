@@ -40,24 +40,10 @@
             "slug": "virtual-accounts.index"
         },
         {
-            "name": "Administration",
+            "url": "admin.index",
+            "name": "User Management",
             "icon": "users",
-            "slug": "",
-            "badge": "2",
-            "submenu": [
-                {
-                    "url": "admin.index",
-                    "name": "List",
-                    "icon": "circle",
-                    "slug": "admin.index"
-                },
-                {
-                    "url": "",
-                    "name": "Register Admin",
-                    "icon": "circle",
-                    "slug": ""
-                }
-            ]
+            "slug": "admin.index"
         }
     ]
 }

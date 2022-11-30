@@ -24,7 +24,7 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('wallets',      WalletController::class)->only('index');
     Route::resource('transactions', WalletTransactionController::class)->only('index');
-    Route::resource('admin',        AdminController::class)->except('show');
+    Route::resource('admin',        AdminController::class)->except(['show', 'create']);
 });
 
 // locale Route
