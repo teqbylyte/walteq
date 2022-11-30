@@ -57,11 +57,11 @@ class WalletTransferRequest extends FormRequest
         $response = MyResponse::failed('An Error occurred');
 
         DB::transaction(function () use (&$response) {
-            $this->sender->debit($this->amount, 'WALLET_TRANSFER', $this->reference, $this->info);
+            $this->sender->debit($this->amount, $this->reference, $this->info, 'WALLET_TRANSFER');
 
             $info = "$this->info. From " . $this->sender->full_name ?? $this->sender->email;
 
-            $this->receiver->credit($this->amount, 'WALLET_TRANSFER', $this->reference, $info);
+            $this->receiver->credit($this->amount, $this->reference, $info, 'WALLET_TRANSFER');
 
             $response = MyResponse::success('Wallet transfer was successful!');
         });

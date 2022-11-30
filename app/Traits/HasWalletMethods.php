@@ -28,7 +28,7 @@ trait HasWalletMethods
         return ['success' => true, 'message' => null];
     }
 
-    public function debit(float $amount, string $trans_type, string $reference, string|null $info)
+    public function debit(float $amount, string $reference, string|null $info, string $trans_type = 'OTHERS')
     {
         \DB::transaction(function () use ($amount, $trans_type, $reference, $info) {
             $prev_bal = $this->balance;
@@ -47,7 +47,7 @@ trait HasWalletMethods
         });
     }
 
-    public function credit(float $amount, string $trans_type, string $reference, string|null $info)
+    public function credit(float $amount, string $reference, string|null $info, string $trans_type = 'OTHERS')
     {
         \DB::transaction(function () use ($amount, $trans_type, $reference, $info) {
             $prev_bal = $this->balance;
