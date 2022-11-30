@@ -20,7 +20,7 @@ $configData = Helper::applClasses();
   </div>
   <div class="shadow-bottom"></div>
   <div class="main-menu-content">
-    <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+    <ul class="navigation navigation-main mt-1" id="main-menu-navigation" data-menu="menu-navigation">
         {{-- Foreach menu item starts --}}
       @if (isset($menuData[0]))
         @foreach ($menuData[0]->menu as $menu)
@@ -38,7 +38,7 @@ $configData = Helper::applClasses();
               }
             @endphp
                 <li
-                    class="nav-item {{ $custom_classes }} {{ Route::currentRouteName() === $menu->slug ? 'active' : '' }}">
+                    class="nav-item {{ $custom_classes }} {{ Route::currentRouteName() === $menu->slug ? 'active' : '' }} mt-1">
                     <a href="{{ !empty($menu->url) ? route($menu->url) : 'javascript:void(0)' }}" class="d-flex align-items-center"
                        target="{{ isset($menu->newTab) ? '_blank' : '_self' }}">
                         <i data-feather="{{ $menu->icon }}"></i>

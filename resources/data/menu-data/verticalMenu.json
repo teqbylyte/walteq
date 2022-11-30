@@ -7,25 +7,16 @@
             "slug": "dashboard"
         },
         {
-            "name": "Wallets",
+            "url": "wallets.index",
+            "name": "Wallet List",
             "icon": "credit-card",
-            "slug": "",
-            "badge": "2",
-            "role": "staff",
-            "submenu": [
-                {
-                    "url": "wallets.index",
-                    "name": "List",
-                    "icon": "circle",
-                    "slug": "wallets.index"
-                },
-                {
-                    "url": "transactions.index",
-                    "name": "Transactions",
-                    "icon": "circle",
-                    "slug": "transactions.index"
-                }
-            ]
+            "slug": "wallets.index"
+        },
+        {
+            "url": "transactions.index",
+            "name": "Transactions History",
+            "icon": "activity",
+            "slug": "transactions.index"
         },
         {
             "url": "",
