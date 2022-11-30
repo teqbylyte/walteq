@@ -28,8 +28,9 @@ class Wallet extends Model
         return $this->hasMany(WalletTransaction::class);
     }
 
-    public function api(): Wallet
+    public function details(): array
     {
-        return $this->select(['unique_id', 'balance', 'email', 'full_name', 'status'])->first();
+        return $this->load(['transactions' => fn($q) => $q->take(20)])
+            ->only(['unique_id', 'balance', 'email', 'full_name', 'status', 'transactions']);
     }
 }

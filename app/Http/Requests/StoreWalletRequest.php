@@ -35,7 +35,7 @@ class StoreWalletRequest extends FormRequest
         $wallet = Wallet::create($this->only('email', 'full_name'));
 
         return  [
-            'wallet' => $wallet->api()
+            'wallet' => $wallet->details()
         ];
     }
 }
