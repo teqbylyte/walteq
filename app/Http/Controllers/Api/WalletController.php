@@ -20,7 +20,12 @@ class WalletController extends Controller
     {
         $data = $request->fulfill();
 
-        return MyResponse::success('Wallet created', $data);
+        return MyResponse::success('Wallet created!', $data);
+    }
+
+    public function show(Wallet $wallet)
+    {
+        return MyResponse::success('Wallet details fetched!', $wallet->details());
     }
 
     public function walletTransfer(WalletTransferRequest $request, Wallet $wallet)

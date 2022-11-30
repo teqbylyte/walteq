@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('v1')->group(function () {
     Route::controller(WalletController::class)->prefix('wallets')->group(function () {
         Route::post('/create', 'store');
+        Route::get('/{wallet}', 'show');
         Route::post('/{wallet}/wallet-transfer', 'walletTransfer');
     });
 

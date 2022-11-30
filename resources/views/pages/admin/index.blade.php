@@ -32,7 +32,7 @@
                     <div class="card-body d-flex align-items-center justify-content-between">
                         <div>
                             <h3 class="fw-bolder mb-75">{{ $users->count() }}</h3>
-                            <span>Total Users</span>
+                            <span>Total Admin Staff</span>
                         </div>
                         <div class="avatar bg-light-primary p-50">
             <span class="avatar-content">
