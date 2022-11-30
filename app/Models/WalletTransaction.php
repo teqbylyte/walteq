@@ -12,7 +12,7 @@ class WalletTransaction extends Model
 
     protected $guarded = ['id'];
 
-    const TYPES = ['FUNDING', 'CHARGE', 'WALLET_TRANSFER', 'BANK_TRANSFER'];
+    const TYPES = ['FUNDING', 'CHARGE', 'WALLET_TRANSFER', 'BANK_TRANSFER', 'OTHERS'];
 
     const ACTION = ['DEBIT', 'CREDIT'];
 

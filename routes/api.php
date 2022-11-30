@@ -24,4 +24,5 @@ Route::prefix('v1')->group(function () {
     });
 
     Route::resource('wallets.transactions', WalletTransactionController::class)->only('index');
+    Route::post('/transactions/create', [WalletTransactionController::class, 'store']);
 });
