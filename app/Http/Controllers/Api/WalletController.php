@@ -28,6 +28,11 @@ class WalletController extends Controller
         return MyResponse::success('Wallet details fetched!', $wallet->details());
     }
 
+    public function balance(Wallet $wallet)
+    {
+        return MyResponse::success('Wallet balance fetched!', $wallet->only(['unique_id', 'balance']));
+    }
+
     public function walletTransfer(WalletTransferRequest $request, Wallet $wallet)
     {
         return $request->fulfil();

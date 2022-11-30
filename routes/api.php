@@ -20,6 +20,7 @@ Route::prefix('v1')->group(function () {
         Route::post('/create', 'store');
         Route::get('/{wallet}', 'show');
         Route::post('/{wallet}/wallet-transfer', 'walletTransfer');
+        Route::get('/{wallet}/balance', 'balance');
     });
 
     Route::resource('wallets.transactions', WalletTransactionController::class)->only('index');

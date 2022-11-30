@@ -30,37 +30,4 @@ class WalletObserver
     {
         //
     }
-
-    /**
-     * Handle the Wallet "deleted" event.
-     *
-     * @param Wallet $wallet
-     * @return void
-     */
-    public function deleted(Wallet $wallet)
-    {
-        //
-    }
-
-    /**
-     * Handle the Wallet "restored" event.
-     *
-     * @param Wallet $wallet
-     * @return void
-     */
-    public function restored(Wallet $wallet)
-    {
-        //
-    }
-
-    /**
-     * Handle the Wallet "force deleted" event.
-     *
-     * @param Wallet $wallet
-     * @return void
-     */
-    public function forceDeleted(Wallet $wallet)
-    {
-        //
-    }
 }
