@@ -64,7 +64,7 @@
                             <h3 class="fw-bolder mb-75">237</h3>
                             <span>Inactive</span>
                         </div>
-                        <div class="avatar bg-light-warning p-50">
+                        <div class="avatar bg-light-danger p-50">
             <span class="avatar-content">
               <i data-feather="user-x" class="font-medium-4"></i>
             </span>
@@ -76,7 +76,7 @@
         <!-- list and filter start -->
         <div class="card">
             <div class="card-body border-bottom">
-                <h4 class="card-title">Search & Filter</h4>
+                <h4 class="card-title fs-6">Search & Filter</h4>
                 <div class="row">
                     <div class="col-md-4 user_role"></div>
                     <div class="col-md-4 user_plan"></div>
@@ -84,20 +84,46 @@
                 </div>
             </div>
             <div class="card-datatable table-responsive pt-0">
-                <table class="user-list-table table">
+                <table class="user-list-table table datatables-basic">
                     <thead class="table-light">
                     <tr>
-                        <th></th>
                         <th>Name</th>
                         <th>Email</th>
                         <th>Phone</th>
                         <th>Status</th>
-                        <th>Role</th>
                         <th>Actions</th>
                     </tr>
                     </thead>
+
+                    <tbody>
+                    @foreach($users as $user)
+                        <tr>
+                            <td>{{ $user->name }}</td>
+                            <td><a href="mailto:{{ $user->email }}">{{ $user->email }}</a></td>
+                            <td>{{ $user->phone }}</td>
+                            <td>
+                                <span class="badge rounded-pill me-1 badge-light-primary">
+                                    Active
+                                </span>
+                            </td>
+
+                            <td>
+                                <div class="dropdown">
+                                    <a class="btn btn-sm dropdown-toggle hide-arrow py-0 waves-effect waves-float waves-light"
+                                       data-bs-toggle="dropdown"
+                                    >
+                                        <x-feathericon-more-vertical />
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-end">
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    @endforeach
+                    </tbody>
                 </table>
             </div>
+
             <!-- Modal to add new user starts-->
             <div class="modal modal-slide-in new-user-modal fade" id="modals-slide-in">
                 <div class="modal-dialog">
