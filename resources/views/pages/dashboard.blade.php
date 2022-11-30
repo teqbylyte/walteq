@@ -104,9 +104,7 @@
                 </div>
             </div>
             <!--/ Statistics Card -->
-        </div>
 
-        <div class="row match-height">
             <!-- Transaction Card -->
             <div class="col-lg-4 col-md-6 col-12">
                 <div class="card card-transaction">
@@ -168,6 +166,7 @@
                 </div>
             </div>
             <!--/ Transaction Card -->
+
             <!-- Revenue Report Card -->
             <div class="col-lg-8 col-12">
                 <div class="card card-revenue-budget">
@@ -202,13 +201,13 @@
                 </div>
             </div>
             <!--/ Revenue Report Card -->
+
         </div>
 
         <div class="card">
-            <div class="card-header">
-                <h5 class="my-0">Last 10 wallet transactions.
-                    <a href="{{ route('transactions.index') }}" class="small fw-normal"> View all</a>
-                </h5>
+            <div class="card-header justify-content-between">
+                <h5 class="my-0">Last 10 wallet transactions.</h5>
+                <a href="{{ route('transactions.index') }}" class="btn btn-primary"> View all</a>
             </div>
             <div class="row match-height">
                 <!-- Company Table Card -->
