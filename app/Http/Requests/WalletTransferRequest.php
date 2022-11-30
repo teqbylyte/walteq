@@ -45,6 +45,8 @@ class WalletTransferRequest extends FormRequest
 
         $this->receiver = Wallet::whereUniqueId($this->receiver_wallet_id)->first();
 
+        abort_if($this->sender->is($this->receiver), 403, 'Unauthorized as sender is also receiver');
+
         $wallet_check = $this->sender->canPerformTransaction($this->amount);
 
         abort_unless($wallet_check['success'], 403, $wallet_check['message']);
