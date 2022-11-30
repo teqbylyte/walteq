@@ -18,11 +18,17 @@ class WalletTransactionsTable extends Component
     protected $paginationTheme = 'bootstrap';
 
     protected $queryString = [
-        'search' => ['except' => ''],
-        'type' => ['except' => '']
+        'search' => ['except' => '', 'as' => 's'],
+        'type' => ['except' => '', 'as' => 't'],
+        'page' => ['except' => 1, 'as' => 'p']
     ];
 
     public function updatingSearch()
+    {
+        $this->resetPage();
+    }
+
+    public function updatingType()
     {
         $this->resetPage();
     }
@@ -32,15 +38,13 @@ class WalletTransactionsTable extends Component
         if (empty($this->search ) && empty($this->type)) {
             $transactions = WalletTransaction::with('wallet')->paginate();
         }
+        elseif (!empty($this->search) && empty($this->type)) {
+            $transactions = WalletTransaction::with('wallet')
+                ->withSearch($this->search)->latest()->paginate();
+        }
         else {
             $transactions = WalletTransaction::with('wallet')
-                ->where(function ($query) {
-                    $query->where('reference', 'like', '%' . $this->search . '%')
-                        ->orWhereHas('wallet',
-                            fn($query) => $query->where('email', 'like', '%' . $this->search . '%')
-                                ->orWhere('unique_id', 'like', '%' . $this->search . '%')
-                        );
-                })->whereType($this->type)->latest()->paginate();
+                ->withSearch($this->search)->whereType($this->type)->latest()->paginate();
         }
 
         return view('livewire.wallet-transactions-table', compact('transactions'));

@@ -11,7 +11,7 @@
 
                 <div class="col-md-4 col-lg-3">
                     <select class="form-select" wire:model="type" id="">
-                        <option disabled selected>Transaction Type</option>
+                        <option value="" selected>All Transactions</option>
                         @foreach(\App\Models\WalletTransaction::TYPES as $t)
                             <option value="{{ $t }}">{{ str($t)->replace('_', ' ') }}</option>
                         @endforeach

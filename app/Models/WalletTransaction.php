@@ -20,4 +20,15 @@ class WalletTransaction extends Model
     {
         return $this->belongsTo(Wallet::class);
     }
+
+    public function scopeWithSearch($query, $search)
+    {
+        $query->where(function ($query) use ($search) {
+            $query->where('reference', 'like', '%' . $search . '%')
+                ->orWhereHas('wallet',
+                    fn($query) => $query->where('email', 'like', '%' . $search . '%')
+                        ->orWhere('unique_id', 'like', '%' . $search . '%')
+                );
+        });
+    }
 }
