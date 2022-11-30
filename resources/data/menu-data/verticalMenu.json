@@ -46,14 +46,14 @@
             "badge": "2",
             "submenu": [
                 {
-                    "url": "",
-                    "name": "Register Admin",
+                    "url": "admin.index",
+                    "name": "List",
                     "icon": "circle",
-                    "slug": "admin.users"
+                    "slug": "admin.index"
                 },
                 {
                     "url": "",
-                    "name": "List",
+                    "name": "Register Admin",
                     "icon": "circle",
                     "slug": ""
                 }

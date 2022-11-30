@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\WalletController;
 use App\Http\Controllers\WalletTransactionController;
 use Illuminate\Support\Facades\Auth;
@@ -23,6 +24,7 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('wallets',      WalletController::class)->only('index');
     Route::resource('transactions', WalletTransactionController::class)->only('index');
+    Route::resource('admin',        AdminController::class)->except('show');
 });
 
 // locale Route
