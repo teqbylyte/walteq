@@ -31,7 +31,7 @@ class CreateTransactionRequest extends FormRequest
             'wallet_id' => 'required|exists:wallets,unique_id',
             'action' => 'required|in:debit,credit',
             'amount'    => 'required|numeric',
-            'reference' => 'required|string',
+            'reference' => 'required|unique:wallet_transactions,reference',
             'info'  => 'nullable',
         ];
     }

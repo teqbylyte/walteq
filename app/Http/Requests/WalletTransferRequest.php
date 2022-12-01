@@ -30,13 +30,13 @@ class WalletTransferRequest extends FormRequest
      *
      * @return array<string, mixed>
      */
-    public function rules()
+    public function rules(): array
     {
         return [
             'sender_wallet_id'      => 'required|exists:wallets,unique_id',
             'receiver_wallet_id'    => 'required|exists:wallets,unique_id',
             'amount'                => 'required|numeric',
-            'reference'             => 'required',
+            'reference'             => 'required|unique:wallet_transactions,reference',
             'info'                  => 'nullable',
         ];
     }
